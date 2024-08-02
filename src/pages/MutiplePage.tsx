@@ -1,19 +1,21 @@
+import { useState } from "react"
 import RenderOptions from "../components/RenderOptions"
+import PointsHolder from "../components/PointsHolder"
 
 const MutiplePage = () => {
 	const options = ["En la pizza", "En el parque", "La cancha", "La marmota"]
 	const correctOpt = "En la pizza"
-	let points = 1
+	let [points, setPoints] = useState(0)
 
 	const handleButtonClick = (option: string) => {
 		if (option === correctOpt) {
-			points++
+			setPoints(() => points++)
 		}
-		console.log(points)
 	}
 
 	return (
 		<main className="flex min-h-screen flex-col items-center p-2 max-w-xl mx-auto">
+			<PointsHolder score={points} />
 			<h2 className="text-xl my-2">Donde sta la casa?</h2>
 			<img
 				className="rounded-sm mb-2"
