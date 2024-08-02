@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom"
 
 const NavBar = () => {
 	const location = useLocation()
-	const [showMenu, setShowMenu] = useState(true)
+	const [showMenu, setShowMenu] = useState(false)
 	useEffect(() => {
 		setShowMenu(() => false)
 	}, [location])

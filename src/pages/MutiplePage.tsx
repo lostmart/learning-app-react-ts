@@ -8,8 +8,10 @@ const MutiplePage = () => {
 	let [points, setPoints] = useState(0)
 
 	const handleButtonClick = (option: string) => {
+		console.log("running")
+
 		if (option === correctOpt) {
-			setPoints(() => points++)
+			setPoints((prevPoints) => prevPoints + 1)
 		}
 	}
 
