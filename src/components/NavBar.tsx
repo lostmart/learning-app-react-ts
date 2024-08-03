@@ -5,17 +5,56 @@ import { FaHome, FaInfoCircle, FaList } from "react-icons/fa"
 const NavBar = () => {
 	const location = useLocation()
 	const [showMenu, setShowMenu] = useState(false)
+
 	useEffect(() => {
-		setShowMenu(() => false)
+		setShowMenu(false)
 	}, [location])
 
 	const handleMenuToggle = () => {
-		setShowMenu(() => !showMenu)
+		setShowMenu((prevShowMenu) => !prevShowMenu)
+	}
+
+	const links = [
+		{
+			to: "/",
+			text: "Home",
+			icon: <FaHome />,
+		},
+		{
+			to: "/about",
+			text: "About",
+			icon: <FaInfoCircle />,
+		},
+		{
+			to: "/mutiple",
+			text: "Mutiple",
+			icon: <FaList />,
+		},
+	]
+
+	type LinkElementProp = {
+		to: string
+		text: string
+		icon: React.ReactElement
+		index: number
+	}
+
+	const RenderLinks = ({ to, text, icon, index }: LinkElementProp) => {
+		return (
+			<li className="w-full p-2" style={{ animationDelay: `${index * 150}ms` }}>
+				<Link
+					className="text-2xl flex justify-center items-center gap-2 text-gray-800"
+					to={to}
+				>
+					{icon}
+					{text}
+				</Link>
+			</li>
+		)
 	}
 
 	return (
 		<nav className="py-2 px-4 bg-primary-default main-menu">
-			{/* <ul className="flex justify-around border-b-2"> */}
 			<button
 				onClick={handleMenuToggle}
 				className="toggle-btn"
@@ -43,31 +82,19 @@ const NavBar = () => {
 				className={showMenu ? "show-menu" : "hidden"}
 				onClick={handleMenuToggle}
 			>
-				<li className="p-3 w-full md:px-20 lg:px-30">
-					<Link
-						className="text-2xl flex items-center gap-2 text-gray-800"
-						to={"/"}
-					>
-						<FaHome /> Home
-					</Link>
-				</li>
-				<li className="p-3 w-full md:px-20 lg:px-30">
-					<Link
-						className="text-2xl flex items-center gap-2 text-gray-800"
-						to={"/about"}
-					>
-						<FaInfoCircle /> About
-					</Link>
-				</li>
-				<li className="p-3 w-full md:px-20 lg:px-30">
-					<Link
-						className="text-2xl flex items-center gap-2 text-gray-800"
-						to={"/mutiple"}
-					>
-						<FaList /> Mutiple
-					</Link>
-				</li>
+				{links.map((link, index) => (
+					<RenderLinks key={link.to} {...link} index={index} />
+				))}
 			</ul>
+			<div
+				onClick={handleMenuToggle}
+				className="backdrop"
+				style={
+					showMenu
+						? { visibility: "visible", opacity: 1 }
+						: { visibility: "hidden", opacity: 0 }
+				}
+			></div>
 		</nav>
 	)
 }
