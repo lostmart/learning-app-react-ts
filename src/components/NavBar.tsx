@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
+import { FaHome, FaInfoCircle, FaList } from "react-icons/fa"
 
 const NavBar = () => {
 	const location = useLocation()
@@ -13,7 +14,7 @@ const NavBar = () => {
 	}
 
 	return (
-		<nav className="py-2 px-4">
+		<nav className="py-2 px-4 bg-primary-default main-menu">
 			{/* <ul className="flex justify-around border-b-2"> */}
 			<button
 				onClick={handleMenuToggle}
@@ -38,20 +39,32 @@ const NavBar = () => {
 					}
 				></span>
 			</button>
-			<ul className={showMenu ? "show-menu" : "hidden"}>
-				<li className="p-3">
-					<Link className="text-2xl" to={"/"}>
-						Home
+			<ul
+				className={showMenu ? "show-menu" : "hidden"}
+				onClick={handleMenuToggle}
+			>
+				<li className="p-3 w-full md:px-20 lg:px-30">
+					<Link
+						className="text-2xl flex items-center gap-2 text-gray-800"
+						to={"/"}
+					>
+						<FaHome /> Home
 					</Link>
 				</li>
-				<li className="p-3">
-					<Link className="text-2xl" to={"/about"}>
-						About
+				<li className="p-3 w-full md:px-20 lg:px-30">
+					<Link
+						className="text-2xl flex items-center gap-2 text-gray-800"
+						to={"/about"}
+					>
+						<FaInfoCircle /> About
 					</Link>
 				</li>
-				<li className="p-3">
-					<Link className="text-2xl" to={"/mutiple"}>
-						Mutiple
+				<li className="p-3 w-full md:px-20 lg:px-30">
+					<Link
+						className="text-2xl flex items-center gap-2 text-gray-800"
+						to={"/mutiple"}
+					>
+						<FaList /> Mutiple
 					</Link>
 				</li>
 			</ul>
