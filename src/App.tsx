@@ -6,6 +6,8 @@ import NavBar from "./components/NavBar"
 import MutiplePage from "./pages/MutiplePage"
 import Home from "./pages/Home"
 import About from "./pages/About"
+import FillInBlank from "./pages/FillInBlank"
+import WriteOptions from "./pages/WriteOptions"
 
 const Contact = () => <div>Contact</div>
 const Error = () => <div>para !!!!</div>
@@ -20,6 +22,8 @@ const App: React.FC = () => {
 					<Route path="/about" element={<About />} />
 					<Route path="/contact" element={<Contact />} />
 					<Route path="/mutiple" element={<MutiplePage />} />
+					<Route path="/fillIn" element={<FillInBlank />} />
+					<Route path="/writeOpt" element={<WriteOptions />} />
 					<Route path="/*" element={<Error />} />
 				</Routes>
 			</div>

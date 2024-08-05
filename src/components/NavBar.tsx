@@ -27,7 +27,7 @@ const NavBar = () => {
 		},
 		{
 			to: "/mutiple",
-			text: "Mutiple",
+			text: "Start",
 			icon: <FaList />,
 		},
 	]

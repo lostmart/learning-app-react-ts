@@ -3,7 +3,7 @@ type PointsHolderPops = {
 }
 
 const PointsHolder = ({ score }: PointsHolderPops) => {
-	return <span>{score}</span>
+	return <span>Score: {score}</span>
 }
 
 export default PointsHolder
