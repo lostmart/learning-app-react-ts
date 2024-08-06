@@ -3,7 +3,7 @@ import React from "react"
 const WriteOptions = () => {
 	return (
 		<main className="flex min-h-screen flex-col items-center p-2 max-w-xl mx-auto">
-			<h2>Write the options right now ...</h2>
+			<h2 className="text-xl my-2">Write the options right now ...</h2>
 
 			<img
 				className="rounded-sm mb-2"

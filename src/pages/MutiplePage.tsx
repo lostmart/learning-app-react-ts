@@ -2,6 +2,7 @@ import { useState } from "react"
 import RenderOptions from "../components/RenderOptions"
 import PointsHolder from "../components/PointsHolder"
 import { useNavigate } from "react-router-dom"
+import ExerciseHeader from "../components/ExerciseHeader"
 
 const MutiplePage = () => {
 	const navigate = useNavigate()
@@ -21,11 +22,10 @@ const MutiplePage = () => {
 	return (
 		<main className="flex min-h-screen flex-col items-center p-2 max-w-xl mx-auto">
 			<PointsHolder score={points} />
-			<h2 className="text-xl my-2">Donde sta la casa?</h2>
-			<img
-				className="rounded-sm mb-2"
-				src="https://images.pexels.com/photos/27025471/pexels-photo-27025471/free-photo-of-nourriture-aliments-pizza-restaurant.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-				alt="no temas a la noche oscura"
+			<ExerciseHeader
+				className="mb-4"
+				titleText="Donde sta la casa?"
+				imageUrl="https://images.pexels.com/photos/27025471/pexels-photo-27025471/free-photo-of-nourriture-aliments-pizza-restaurant.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 			/>
 			<RenderOptions options={options} handleButtonClick={handleButtonClick} />
 		</main>

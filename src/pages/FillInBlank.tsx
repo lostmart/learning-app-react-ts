@@ -2,6 +2,7 @@ import { useState } from "react"
 import RenderOptions from "../components/RenderOptions"
 import PointsHolder from "../components/PointsHolder"
 import { useNavigate } from "react-router-dom"
+import ExerciseHeader from "../components/ExerciseHeader"
 
 const FillInBlank = () => {
 	const navigate = useNavigate()
@@ -20,13 +21,11 @@ const FillInBlank = () => {
 	return (
 		<main className="flex min-h-screen flex-col items-center p-2 max-w-xl mx-auto">
 			<PointsHolder score={points} />
-			<h2 className="text-xl my-2">Write right now !!</h2>
-			<img
-				className="rounded-sm mb-2"
-				src="https://images.pexels.com/photos/20827831/pexels-photo-20827831/free-photo-of-person-fingers-holding-dandelion-on-meadow.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-				alt="no temas a la noche oscura"
+			<ExerciseHeader
+				className="mb-4"
+				titleText="Donde esta la casa?"
+				imageUrl="https://images.pexels.com/photos/17918776/pexels-photo-17918776/free-photo-of-dandelion-in-hand.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 			/>
-			<p className="mb-4 mt-2">Donde esta la ____ ?</p>
 			<RenderOptions options={options} handleButtonClick={handleButtonClick} />
 		</main>
 	)
