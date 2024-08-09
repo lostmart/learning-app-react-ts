@@ -1,14 +1,26 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import ButtonComp from "../components/ButtonComp"
 
 type PhraseState = string[]
 
 const WriteOptions = () => {
+	const btnRef = useRef<HTMLButtonElement>(null)
+
 	const [phrase, setPhrase] = useState<PhraseState>([])
 
 	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		const target = e.target as HTMLButtonElement
 		setPhrase([target.innerHTML, ...phrase])
+	}
+
+	const handleBtnRef = () => {
+		console.log("running the run")
+
+		if (btnRef.current) {
+			console.log(btnRef.current)
+
+			btnRef.current.style.display = "none"
+		}
 	}
 
 	const RenderPhrase = () => {
@@ -41,6 +53,9 @@ const WriteOptions = () => {
 					classNames="px-3 py-1 mb-3 border-2"
 					theClick={(e) => handleClick(e)}
 				/>
+				<button onClick={handleBtnRef} ref={btnRef}>
+					btn
+				</button>
 				<ButtonComp
 					text="deliciosa"
 					classNames="px-3 py-1 mb-3 border-2"
